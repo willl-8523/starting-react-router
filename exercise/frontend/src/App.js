@@ -1,16 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Homepage from './pages/Home';
-import EventsPage, {loader as eventsLoader} from './pages/Events';
-import EventDetailPage from './pages/EventDetail';
-import NewEventPage from './pages/NewEventPage';
 import EditEventPage from './pages/EditEvent';
-import RootLayout from './pages/Root';
+import ErrorPage from './pages/Error';
+import EventDetailPage from './pages/EventDetail';
+import EventsPage, { loader as eventsLoader } from './pages/Events';
 import EventsRootLayout from './pages/EventsRoot';
+import Homepage from './pages/Home';
+import NewEventPage from './pages/NewEventPage';
+import RootLayout from './pages/Root';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Homepage /> },
       {
