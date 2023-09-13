@@ -1,2 +1,8 @@
 node_modules
 notes
+
+# node_modules for backend folder
+exercice\backend\node_modules
+
+# node_modules for frontend folder
+exercice\frontend\node_modules
