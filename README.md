@@ -1,6 +1,6 @@
 # Starting React Router
 
-    ## How to use exercise folder
+## How to use exercise folder
 
     This project actually contains two projects:
         - A React.js application (i.e., the frontend SPA)
