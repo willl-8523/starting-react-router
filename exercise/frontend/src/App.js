@@ -22,9 +22,11 @@ const router = createBrowserRouter([
         element: <EventsRootLayout />,
         children: [
           /**
-           *  loader: () => {} => fetch data before render component (react-router
-           *  v6 >= )
-           *  Can access to data in all children component for this component
+           *  loader: () => {} => fetch data before render component
+           *  (react-router v6 >= )
+           *
+           *  Can access to data in all children component for this
+           *  component
            * */
           {
             index: true,
@@ -33,11 +35,20 @@ const router = createBrowserRouter([
           },
           {
             path: ':eventId',
-            element: <EventDetailPage />,
+            id: 'event-detail',
             loader: eventDetailLoader,
+            children: [
+              {
+                index: true,
+                element: <EventDetailPage />,
+              },
+              { 
+                path: 'edit', 
+                element: <EditEventPage />
+              },
+            ],
           },
           { path: 'new', element: <NewEventPage /> },
-          { path: ':eventId/edit', element: <EditEventPage /> },
         ],
       },
     ],
