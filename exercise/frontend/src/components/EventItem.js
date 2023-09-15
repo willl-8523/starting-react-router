@@ -3,7 +3,6 @@ import classes from './EventItem.module.css';
 
 function EventItem({ event }) {
   const submit = useSubmit();
-  console.log(submit);
 
   function startDeleteHandler() {
     const proceed = window.confirm('Are you sure?');
