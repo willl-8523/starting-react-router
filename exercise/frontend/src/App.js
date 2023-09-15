@@ -1,16 +1,18 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { action as manipulateEventAction } from './components/EventForm';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
 import EventDetailPage, {
-  action as deleteEventAction,
   loader as eventDetailLoader,
+  action as deleteEventAction,
 } from './pages/EventDetail';
 import EventsPage, { loader as eventsLoader } from './pages/Events';
 import EventsRootLayout from './pages/EventsRoot';
-import Homepage from './pages/Home';
+import HomePage from './pages/Home';
 import NewEventPage from './pages/NewEventPage';
 import RootLayout from './pages/Root';
+import { action as manipulateEventAction } from './components/EventForm';
+import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
 
 const router = createBrowserRouter([
   {
@@ -18,18 +20,11 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Homepage /> },
+      { index: true, element: <HomePage /> },
       {
         path: 'events',
         element: <EventsRootLayout />,
         children: [
-          /**
-           *  loader: () => {} => fetch data before render component
-           *  (react-router v6 >= )
-           *
-           *  Can access to data in all children component for this
-           *  component
-           * */
           {
             index: true,
             element: <EventsPage />,
@@ -58,6 +53,11 @@ const router = createBrowserRouter([
             action: manipulateEventAction,
           },
         ],
+      },
+      {
+        path: 'newsletter',
+        element: <NewsletterPage />,
+        action: newsletterAction,
       },
     ],
   },
